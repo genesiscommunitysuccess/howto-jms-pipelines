@@ -1,0 +1,460 @@
+{
+  "meta": {
+    "version": "1.142.0",
+    "generated": "Mon, 04 Nov 2024 09:50:09 GMT"
+  },
+  "data": {
+    "projectName": "jms-pipelines",
+    "description": "",
+    "components": [
+      "GenesisServerCore",
+      "User Authorization"
+    ],
+    "tables": [
+      {
+        "name": "MESSAGE_SENT",
+        "id": 11000,
+        "primaryKey": {
+          "id": null,
+          "name": null,
+          "fields": [
+            "ID"
+          ],
+          "indexType": "UNIQUE"
+        },
+        "fields": [
+          {
+            "type": "STRING",
+            "name": "TEXT",
+            "nullable": false,
+            "maxSize": 100,
+            "sensitive": false,
+            "appProvided": false,
+            "readOnly": false,
+            "username": false
+          }
+        ],
+        "generatedFields": [
+          {
+            "fieldType": "STRING",
+            "generatedFieldType": "SEQUENCE",
+            "name": "ID",
+            "sequence": "MS",
+            "useUUID": false
+          }
+        ],
+        "audit": false,
+        "generateCreateUpdateDelete": true,
+        "snapshot": true,
+        "realtimeQuery": null,
+        "indices": [],
+        "meta": {
+          "attrOrder": [
+            "ID",
+            "TEXT"
+          ]
+        }
+      },
+      {
+        "name": "MESSAGE_RECEIVED",
+        "id": 11001,
+        "primaryKey": {
+          "id": null,
+          "name": null,
+          "fields": [
+            "ID"
+          ],
+          "indexType": "UNIQUE"
+        },
+        "fields": [
+          {
+            "type": "STRING",
+            "name": "TEXT",
+            "nullable": false,
+            "maxSize": 100,
+            "sensitive": false,
+            "appProvided": false,
+            "readOnly": false,
+            "defaultValue": null,
+            "username": false,
+            "pattern": null
+          }
+        ],
+        "generatedFields": [
+          {
+            "fieldType": "STRING",
+            "generatedFieldType": "SEQUENCE",
+            "name": "ID",
+            "sequence": "MR",
+            "useUUID": false
+          }
+        ],
+        "audit": false,
+        "generateCreateUpdateDelete": true,
+        "snapshot": true,
+        "realtimeQuery": null,
+        "indices": [],
+        "meta": {
+          "attrOrder": [
+            "ID",
+            "TEXT"
+          ]
+        }
+      }
+    ],
+    "consolidators": [],
+    "pipelines": [],
+    "ui": {
+      "config": null,
+      "routes": [
+        {
+          "id": "d62103fb-c72a-421f-9c68-ca90d9e13ef7",
+          "name": "HOME",
+          "layoutType": null,
+          "permissions": null,
+          "tiles": [
+            {
+              "title": "Messages Received",
+              "type": "entity-manager",
+              "config": {
+                "resourceName": "MESSAGE_RECEIVED",
+                "permissions": null,
+                "updateEvent": null,
+                "deleteEvent": null,
+                "createEvent": null,
+                "modalPosition": "centre",
+                "sizeColumnsToFit": true,
+                "enableSearchBar": false,
+                "reqrep": true,
+                "columns": [
+                  {
+                    "field": "TEXT",
+                    "meta": {
+                      "gridDisplay": {
+                        "mode": "visible",
+                        "type": "string",
+                        "format": "Input"
+                      },
+                      "attribute": "TEXT",
+                      "displayName": "Text",
+                      "alias": null,
+                      "entity": "MESSAGE_RECEIVED",
+                      "id": "TEXTID"
+                    }
+                  },
+                  {
+                    "field": "ID",
+                    "meta": {
+                      "gridDisplay": {
+                        "mode": "visible",
+                        "type": "string",
+                        "format": "Input"
+                      },
+                      "attribute": "ID",
+                      "displayName": "Id",
+                      "alias": null,
+                      "entity": "MESSAGE_RECEIVED",
+                      "id": "IDID"
+                    }
+                  }
+                ],
+                "createFormUiSchema": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Text",
+                      "scope": "#/properties/TEXT",
+                      "options": {},
+                      "meta": {
+                        "createForm": {
+                          "mode": "visible",
+                          "type": "string",
+                          "format": "Input"
+                        },
+                        "alias": null,
+                        "attribute": "TEXT",
+                        "entity": "MESSAGE_RECEIVED",
+                        "id": "TEXTID"
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Id",
+                      "scope": "#/properties/ID",
+                      "options": {
+                        "hidden": true
+                      },
+                      "meta": {
+                        "createForm": {
+                          "mode": "hidden"
+                        },
+                        "alias": null,
+                        "attribute": "ID",
+                        "entity": "MESSAGE_RECEIVED",
+                        "id": "IDID"
+                      }
+                    }
+                  ]
+                },
+                "updateFormUiSchema": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Text",
+                      "scope": "#/properties/TEXT",
+                      "options": {},
+                      "meta": {
+                        "updateForm": {
+                          "mode": "visible",
+                          "type": "string",
+                          "format": "Input"
+                        },
+                        "alias": null,
+                        "attribute": "TEXT",
+                        "entity": "MESSAGE_RECEIVED",
+                        "id": "TEXTID"
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Id",
+                      "scope": "#/properties/ID",
+                      "options": {
+                        "readonly": true
+                      },
+                      "meta": {
+                        "updateForm": {
+                          "mode": "read-only"
+                        },
+                        "alias": null,
+                        "attribute": "ID",
+                        "entity": "MESSAGE_RECEIVED",
+                        "id": "IDID"
+                      }
+                    }
+                  ]
+                },
+                "entityName": "Message Received",
+                "meta": {
+                  "inactiveGridConfig": [],
+                  "inactiveFormConfig": [],
+                  "configAttrNames": [
+                    {
+                      "name": "TEXT",
+                      "alias": null
+                    },
+                    {
+                      "name": "ID",
+                      "alias": null
+                    }
+                  ]
+                }
+              },
+              "meta": {}
+            },
+            {
+              "title": "Messages Sent",
+              "type": "entity-manager",
+              "config": {
+                "resourceName": "MESSAGE_SENT",
+                "permissions": null,
+                "updateEvent": null,
+                "deleteEvent": null,
+                "createEvent": "EVENT_MESSAGE_SENT_INSERT",
+                "modalPosition": "centre",
+                "sizeColumnsToFit": true,
+                "enableSearchBar": false,
+                "reqrep": true,
+                "columns": [
+                  {
+                    "field": "TEXT",
+                    "meta": {
+                      "gridDisplay": {
+                        "mode": "visible",
+                        "type": "string",
+                        "format": "Input"
+                      },
+                      "attribute": "TEXT",
+                      "displayName": "Text",
+                      "alias": null,
+                      "entity": "MESSAGE_SENT",
+                      "id": "TEXTID"
+                    }
+                  },
+                  {
+                    "field": "ID",
+                    "meta": {
+                      "gridDisplay": {
+                        "mode": "visible",
+                        "type": "string",
+                        "format": "Input"
+                      },
+                      "attribute": "ID",
+                      "displayName": "Id",
+                      "alias": null,
+                      "entity": "MESSAGE_SENT",
+                      "id": "IDID"
+                    }
+                  }
+                ],
+                "createFormUiSchema": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Text",
+                      "scope": "#/properties/TEXT",
+                      "options": {},
+                      "meta": {
+                        "createForm": {
+                          "mode": "visible",
+                          "type": "string",
+                          "format": "Input"
+                        },
+                        "alias": null,
+                        "attribute": "TEXT",
+                        "entity": "MESSAGE_SENT",
+                        "id": "TEXTID"
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Id",
+                      "scope": "#/properties/ID",
+                      "options": {
+                        "hidden": true
+                      },
+                      "meta": {
+                        "createForm": {
+                          "mode": "hidden"
+                        },
+                        "alias": null,
+                        "attribute": "ID",
+                        "entity": "MESSAGE_SENT",
+                        "id": "IDID"
+                      }
+                    }
+                  ]
+                },
+                "updateFormUiSchema": {
+                  "type": "VerticalLayout",
+                  "elements": [
+                    {
+                      "type": "Control",
+                      "label": "Text",
+                      "scope": "#/properties/TEXT",
+                      "options": {},
+                      "meta": {
+                        "updateForm": {
+                          "mode": "visible",
+                          "type": "string",
+                          "format": "Input"
+                        },
+                        "alias": null,
+                        "attribute": "TEXT",
+                        "entity": "MESSAGE_SENT",
+                        "id": "TEXTID"
+                      }
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Id",
+                      "scope": "#/properties/ID",
+                      "options": {
+                        "readonly": true
+                      },
+                      "meta": {
+                        "updateForm": {
+                          "mode": "read-only"
+                        },
+                        "alias": null,
+                        "attribute": "ID",
+                        "entity": "MESSAGE_SENT",
+                        "id": "IDID"
+                      }
+                    }
+                  ]
+                },
+                "entityName": "Message Sent",
+                "meta": {
+                  "inactiveGridConfig": [],
+                  "inactiveFormConfig": [],
+                  "configAttrNames": [
+                    {
+                      "name": "TEXT",
+                      "alias": null
+                    },
+                    {
+                      "name": "ID",
+                      "alias": null
+                    }
+                  ]
+                }
+              },
+              "meta": {}
+            }
+          ]
+        }
+      ],
+      "framework": "web components"
+    },
+    "views": [],
+    "PBCs": [
+      {
+        "id": "pbc-auth-seed",
+        "config": {}
+      }
+    ],
+    "csv": [
+      {
+        "name": "MESSAGE_SENT",
+        "fields": [
+          "TEXT"
+        ]
+      },
+      {
+        "name": "MESSAGE_RECEIVED",
+        "fields": [
+          "TEXT"
+        ]
+      },
+      {
+        "name": "RIGHT",
+        "fields": [
+          "CODE",
+          "DESCRIPTION"
+        ],
+        "data": []
+      },
+      {
+        "name": "PROFILE",
+        "fields": [
+          "NAME",
+          "DESCRIPTION",
+          "STATUS"
+        ],
+        "data": []
+      },
+      {
+        "name": "PROFILE_RIGHT",
+        "fields": [
+          "PROFILE_NAME",
+          "RIGHT_CODE"
+        ],
+        "data": []
+      }
+    ],
+    "userOverrides": null,
+    "deliveryConfig": {
+      "method": "download",
+      "fileSuffix": "2024-11-04_095001",
+      "excludeGradleWrapper": false
+    },
+    "telemetry": {
+      "deviceId": "5d67d997-7f20-4930-8edf-d5ce17165119",
+      "sessionId": "493c0136-906f-42b8-9115-377b28f41f76"
+    }
+  }
+}
