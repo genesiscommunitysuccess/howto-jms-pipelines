@@ -1,0 +1,25 @@
+# Below is a simple configuration example in order to run an instance of IBM MQ.
+# You can use tools like rancher/docker to manage your containers, this needs to be running in the background.
+# In order to start up your IBM MQ service you need to run the following command in the directory where this docker-compose.yml exists:
+# docker-compose up -d
+# This will start up the container and run it in the background, you can confirm this is running by using the following command:
+# docker ps
+# This should show you the containers you have running at the moment which should include your IBM MQ service.
+
+services:
+  mqseries:
+    image: ibmcom/mq:latest
+    ports:
+      - "1414:1414" # MQ Port
+      - "9443:9443" # MQ Web Console
+    hostname: mq
+    environment:
+      - LICENSE=accept
+      # define the queue manager name to be used when connecting to the source/sink
+      - MQ_QMGR_NAME=QM1
+      # define the admin password to be used when connecting to the source/sink
+      - MQ_ADMIN_PASSWORD=AdminPassword123
+    container_name: mqserver
+    stdin_open: true
+    tty: true
+    restart: always
